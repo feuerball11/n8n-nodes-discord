@@ -1,5 +1,5 @@
-import { ITriggerFunctions } from 'n8n-core';
 import {
+	ITriggerFunctions,
   INodeType,
   INodeTypeDescription,
   IWebhookFunctions,
@@ -79,7 +79,7 @@ export class DiscordTrigger implements INodeType {
       let baseUrl = '';
 
       const credentials = (await this.getCredentials('discordApi').catch(
-        (e) => e,
+        (e : any) => e,
       )) as any as ICredentials;
       await connection(credentials).catch((e) => e);
 

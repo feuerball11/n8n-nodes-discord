@@ -1,5 +1,5 @@
-import { IExecuteFunctions } from 'n8n-core';
 import {
+	IExecuteFunctions,
   INodeExecutionData,
   INodePropertyOptions,
   INodeType,
@@ -138,7 +138,7 @@ export class Discord implements INodeType {
 
     // connection
     const credentials = (await this.getCredentials('discordApi').catch(
-      (e) => e,
+      (e : any) => e,
     )) as any as ICredentials;
     await connection(credentials).catch((e) => {
       throw new Error(e);

@@ -1,5 +1,12 @@
 # Changelog
 
+## Released (2023-09-13 0.5.1)
+
+### Bug fixes
+
+- Update dependencies
+- Fixed some Typescript Errors
+
 ## Released (2023-01-18 0.5.0)
 
 ### New Features
