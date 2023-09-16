@@ -1,7 +1,7 @@
 {
-	"name": "@feuerball11/n8n-nodes-discord",
-	"version": "0.5.1",
-	"description": "nodes to trigger workflows from Discord or send interactive messages. Uses the components API which allows to create dialogs (e.g. attach buttons and wait for the user to click on them)",
+	"name": "n8n-nodes-discord-fork",
+	"version": "0.5.9",
+	"description": "Fork of the original n8n-nodes-discord, to fix bugs. nodes to trigger workflows from Discord or send interactive messages. Uses the components API which allows to create dialogs (e.g. attach buttons and wait for the user to click on them)",
 	"keywords": [
 		"n8n",
 		"node",

@@ -2,7 +2,6 @@ import Ipc from 'node-ipc';
 import {
   Client,
   Channel,
-  Message,
   EmbedBuilder,
   ColorResolvable,
   AttachmentBuilder,
@@ -165,10 +164,22 @@ export default async function (ipc: typeof Ipc, client: Client) {
                   }
                 }
               }
-              const message = (await channel.send(sendObject).catch((e: any) => {
-                addLog(`${e}`, client);
-              })) as Message;
-              ipc.server.emit(socket, 'send:message', { channelId, messageId: message.id });
+              channel.send(sendObject)
+								.then(message =>
+									ipc.server.emit(socket, 'send:message', { channelId, messageId: message.id }))
+								.catch((e: any) => {
+									addLog(`sending failed. Trying re-login`, client);
+									client.login(nodeParameters.token)
+										.then(() => {
+											channel.send(sendObject)
+												.then(message =>
+													ipc.server.emit(socket, 'send:message', { channelId, messageId: message.id }))
+												.catch((e: any) => {
+													addLog(`${e}`, client);
+													ipc.server.emit(socket, 'send:message', false);
+												});
+										});
+								});
             })
             .catch((e: any) => {
               addLog(`${e}`, client);

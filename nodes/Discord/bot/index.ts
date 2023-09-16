@@ -39,6 +39,8 @@ export default function () {
     addLog(`Logged in as ${client.user?.tag}`, client);
   });
 
+	client.on('debug', d => addLog(d,client));
+
   // listen to users changing their status events
   presenceUpdateEvent(client);
 

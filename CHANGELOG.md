@@ -1,5 +1,54 @@
 # Changelog
 
+## Released (2023-09-16 0.5.9)
+
+### Bug fixes
+
+- trying to re-release, as the previous version apparently contained old code
+
+
+## Released (2023-09-16 0.5.8)
+
+### Bug fixes
+
+- remove failing code in index, adding token for re-login, checking token in client on credentials call
+
+## Released (2023-09-13 0.5.7)
+
+### Bug fixes
+
+- circumventing redefine issue
+
+## Released (2023-09-13 0.5.6)
+
+### Bug fixes
+
+- going brute-force and logging every access to token
+
+## Released (2023-09-13 0.5.5)
+
+### Bug fixes
+
+- logging active token before re-trying
+
+## Released (2023-09-13 0.5.4)
+
+### Bug fixes
+
+- implement fail-over login for sendMessage
+
+## Released (2023-09-13 0.5.3)
+
+### Bug fixes
+
+- log discord.js debug logs. 
+
+## Released (2023-09-13 0.5.2)
+
+### Bug fixes
+
+- Port fixes from https://github.com/minhlucvan/n8n-nodes-discord
+
 ## Released (2023-09-13 0.5.1)
 
 ### Bug fixes

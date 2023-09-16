@@ -41,6 +41,7 @@ const nodeDescription: INodeTypeDescription = {
 
 export interface IDiscordNodeMessageParameters {
   executionId: string;
+	token: string;
   triggerPlaceholder: boolean;
   triggerChannel: boolean;
   channelId: string;
@@ -83,6 +84,7 @@ export interface IDiscordNodePromptParameters {
   timeout: number;
   placeholder: string;
   apiKey: string;
+	token: string;
   baseUrl: string;
   buttons: {
     button?: {
@@ -106,6 +108,7 @@ export interface IDiscordNodePromptParameters {
 
 export interface IDiscordNodeActionParameters {
   executionId: string;
+	token: string;
   triggerPlaceholder: boolean;
   triggerChannel: boolean;
   channelId: string;
@@ -154,6 +157,7 @@ export class Discord implements INodeType {
       nodeParameters.executionId = executionId;
       nodeParameters.apiKey = credentials.apiKey;
       nodeParameters.baseUrl = credentials.baseUrl;
+			nodeParameters.token = credentials.token;
 
       if (nodeParameters.channelId || nodeParameters.executionId) {
         // return the interaction result if there is one
