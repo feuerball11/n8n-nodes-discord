@@ -69,6 +69,7 @@ export interface IDiscordNodeMessageParameters {
   content: string;
   files: {
     file?: {
+			name: string;
       url: string;
     }[];
   };

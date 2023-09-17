@@ -118,11 +118,28 @@ export default async function (ipc: typeof Ipc, client: Client) {
               // embedFiles
               let files: any[] = [];
               if (nodeParameters.files?.file) {
-                files = nodeParameters.files?.file.map((file: { url: string }) => {
-                  if (file.url.match(/^data:/)) {
-                    return Buffer.from(file.url.split(',')[1], 'base64');
-                  }
-                  return file.url;
+                files = nodeParameters.files?.file.map((file: { name: string; url: string}) => {
+                  if (file.name)
+									{
+										if (file.url.match(/^data:/)) {
+											return {
+												name: file.name,
+												attachment: Buffer.from(file.url.split(',')[1], 'base64')
+											}
+										}
+										return {
+											name: file.name,
+											attachment : file.url
+										};
+									}
+									if (file.url.match(/^data:/)) {
+                    return {
+											attachment: Buffer.from(file.url.split(',')[1], 'base64')
+											}
+									}
+                  return {
+										attachment : file.url
+									};
                 });
               }
               if (embedFiles.length) files = files.concat(embedFiles);

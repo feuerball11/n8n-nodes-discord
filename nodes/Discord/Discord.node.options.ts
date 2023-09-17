@@ -659,6 +659,13 @@ export const options: INodeProperties[] = [
         name: 'file',
         displayName: 'File',
         values: [
+					{
+						displayName: 'Name',
+						name: 'name',
+						type: 'string',
+						default: '',
+						description: 'Name of the file, empty for auto generated',
+					},
           {
             displayName: 'URL or base64',
             name: 'url',

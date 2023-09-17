@@ -2,12 +2,12 @@ import Ipc from 'node-ipc';
 import { Client } from 'discord.js';
 import {ICredentials, addLog, withTimeout} from '../helpers';
 import state from '../state';
-import commands from '../commands';
+//import commands from '../commands';
 
 export default async function (ipc: typeof Ipc, client: Client) {
   ipc.server.on('credentials', (data: ICredentials, socket: any) => {
     try {
-			if (client.token == null)
+			if (!state.login && client.token == null)
 			{
 				addLog(`found client token deleted, resetting ready state`, client);
 				state.ready = false;
@@ -20,10 +20,10 @@ export default async function (ipc: typeof Ipc, client: Client) {
         if (data.token && data.clientId) {
 					addLog(`credentials login authenticating`, client);
           state.login = true;
-          client.destroy();
-          commands(data.token, data.clientId, client).catch((e) => {
-            addLog(`${e}`, client);
-          });
+          //client.destroy();
+          //commands(data.token, data.clientId, client).catch((e) => {
+          //  addLog(`${e}`, client);
+          //});
 					withTimeout(client
 						.login(data.token), 3000)
             .then(() => {

@@ -17,6 +17,7 @@ import guildMemberRemoveEvent from './discordClientEvents/guildMemberRemove.even
 import messageCreateEvent from './discordClientEvents/messageCreate.event';
 import interactionCreateEventUI from './discordClientEvents/interactionCreateUI.event';
 import interactionCreateEventCmd from './discordClientEvents/interactionCreateCmd.event';
+import getMessagesIpc from "./ipcEvents/getMessages.ipc";
 
 export default function () {
   const client = new Client({
@@ -97,6 +98,9 @@ export default function () {
 
     // used to initiate node execution (message, prompt)
     executionIpc(ipc, client);
+
+		// used to get messages
+		getMessagesIpc(ipc, client);
   });
 
   ipc.server.start();

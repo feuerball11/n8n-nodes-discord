@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-discord-fork",
-	"version": "0.5.9",
+	"version": "0.5.15",
 	"description": "Fork of the original n8n-nodes-discord, to fix bugs. nodes to trigger workflows from Discord or send interactive messages. Uses the components API which allows to create dialogs (e.g. attach buttons and wait for the user to click on them)",
 	"keywords": [
 		"n8n",
@@ -37,6 +37,7 @@
 		],
 		"nodes": [
 			"dist/nodes/Discord/Discord.node.js",
+      "dist/nodes/Discord/DiscordGet.node.js",
 			"dist/nodes/Discord/DiscordTrigger.node.js"
 		]
 	},

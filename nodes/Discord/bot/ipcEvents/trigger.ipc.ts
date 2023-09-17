@@ -1,19 +1,19 @@
 import Ipc from 'node-ipc';
 import {
   Client,
-  SlashCommandBuilder,
-  SlashCommandBooleanOption,
-  SlashCommandStringOption,
-  RESTPostAPIApplicationCommandsJSONBody,
-  SlashCommandNumberOption,
-  SlashCommandIntegerOption,
+  //SlashCommandBuilder,
+  //SlashCommandBooleanOption,
+  //SlashCommandStringOption,
+  //RESTPostAPIApplicationCommandsJSONBody,
+  //SlashCommandNumberOption,
+  ////SlashCommandIntegerOption,
 } from 'discord.js';
 import { addLog } from '../helpers';
 import state from '../state';
-import { registerCommands } from '../commands';
+//import { registerCommands } from '../commands';
 
 export default async function (ipc: typeof Ipc, client: Client) {
-  let timeout: null | NodeJS.Timeout = null;
+  //let timeout: null | NodeJS.Timeout = null;
 
   ipc.server.on('trigger', (data: any) => {
     try {
@@ -43,6 +43,7 @@ export default async function (ipc: typeof Ipc, client: Client) {
         if (parameters.type === 'command' && parameters.active) commandsParam.push(parameters);
       });
 
+			/*
       // build & register commands
       if (timeout) clearTimeout(timeout); // we want to avoid multiple calls to registerCommands
       timeout = setTimeout(() => {
@@ -93,6 +94,7 @@ export default async function (ipc: typeof Ipc, client: Client) {
           registerCommands(data.credentials.token, data.credentials.clientId, []);
         }
       }, 2000);
+			 */
     } catch (e) {
       addLog(`${e}`, client);
     }

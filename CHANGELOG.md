@@ -1,5 +1,41 @@
 # Changelog
 
+## Released (2023-09-17 0.5.15)
+
+### Bug fixes
+
+- Dont call client.destroy() for resetting client anymore. 
+
+## Released (2023-09-17 0.5.14)
+
+### Bug fixes
+
+- Only reset login state, if not currently logging in
+
+## Released (2023-09-17 0.5.13)
+
+### Bug fixes
+
+- Remove command building during credentials.
+
+## Released (2023-09-17 0.5.12)
+
+### Bug fixes
+
+- remove Commands to test if they caused issues with Authentication.
+
+## Released (2023-09-17 0.5.11)
+
+### New Features
+
+- Add a new node to get Messages from a channel
+
+## Released (2023-09-16 0.5.10)
+
+### Bug fixes
+
+- add option to name files
+
 ## Released (2023-09-16 0.5.9)
 
 ### Bug fixes
