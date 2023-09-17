@@ -1,6 +1,6 @@
-import { Client, GatewayIntentBits } from 'discord.js';
+import {Client, GatewayIntentBits, Partials} from 'discord.js';
 import ipc from 'node-ipc';
-import { addLog } from './helpers';
+import {addLog} from './helpers';
 import credentialsIpc from './ipcEvents/credentials.ipc';
 import triggerIpc from './ipcEvents/trigger.ipc';
 import listChannelsIpc from './ipcEvents/listChannels.ipc';
@@ -30,10 +30,14 @@ export default function () {
       GatewayIntentBits.GuildBans,
       GatewayIntentBits.GuildMessageReactions,
       GatewayIntentBits.GuildMessageTyping,
+			GatewayIntentBits.DirectMessages,
     ],
     allowedMentions: {
       parse: ['roles', 'users', 'everyone'],
     },
+		partials: [
+			Partials.Channel
+		]
   });
 
   client.on('ready', () => {

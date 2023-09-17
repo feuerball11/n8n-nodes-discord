@@ -1,5 +1,17 @@
 # Changelog
 
+## Released (2023-09-17 0.5.17)
+
+### Bug fixes
+
+- Add Partial for Channels, to avoid v8 discord API error with DMs.
+
+## Released (2023-09-17 0.5.16)
+
+### New Features
+
+- Add DMs to the intents, to support DMs.
+
 ## Released (2023-09-17 0.5.15)
 
 ### Bug fixes
